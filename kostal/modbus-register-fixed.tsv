@@ -1,0 +1,126 @@
+Addr (hex)	Addr (dec)	Description	Unit	Format	Quantity	Access	Function-Code	Influx-Name	Include in Metrics
+0x02	2	MODBUS Enable	-	Bool	1	R/W	0x03/0x06	modbus_enable	
+0x04	4	MODBUS Unit-ID	-	U16	1	R/W	0x03/0x06	modbus_unit_id	
+0x05	5	MODBUS Byte Order Note	-	U16	1	R/W	0x03/0x06	modbus_byte_order_note	
+0x06	6	Inverter article number	-	String	8	RO	0x03	inverter_article_number	
+0x0E	14	Inverter serial number	-	String	8	RO	0x03	inverter_serial_number	
+0x1E	30	Number of bidirectional converter	-	U16	1	RO	0x03	number_of_bidirectional_converter	
+0x20	32	Number of AC phases	-	U16	1	RO	0x03	number_of_ac_phases	
+0x22	34	Number of PV strings	-	U16	1	RO	0x03	number_of_pv_strings	
+0x24	36	Hardware-Version	-	U16	2	RO	0x03	hardware_version	
+0x26	38	Software-Version Maincontroller (MC)	-	String	8	RO	0x03	software_version_maincontroller	
+0x2E	46	Software-Version IO-Controller (IOC)	-	String	8	RO	0x03	software_version_io_controller	
+0x36	54	Power-ID	-	U16	2	RO	0x03	power_id	
+0x38	56	Inverter state	-	U16	2	RO	0x03	inverter_state	true
+0x62	98	Temperature of controller PCB	°C	Float	2	RO	0x03	temperature_of_controller_pcb_degc	true
+0x64	100	Total DC power	W	Float	2	RO	0x03	total_dc_power_w	true
+0x68	104	State of energy manager	-	U32	2	RO	0x03	state_of_energy_manager	true
+0x6A	106	Home own consumption from battery	W	Float	2	RO	0x03	home_own_consumption_from_battery_w	
+0x6C	108	Home own consumption from grid	W	Float	2	RO	0x03	home_own_consumption_from_grid_w	
+0x6E	110	Total home consumption Battery	Wh	Float	2	RO	0x03	total_home_consumption_battery_wh	
+0x70	112	Total home consumption Grid	Wh	Float	2	RO	0x03	total_home_consumption_grid_wh	
+0x72	114	Total home consumption PV	Wh	Float	2	RO	0x03	total_home_consumption_pv_wh	
+0x74	116	Home own consumption from PV	W	Float	2	RO	0x03	home_own_consumption_from_pv_w	
+0x76	118	Total home consumption	Wh	Float	2	RO	0x03	total_home_consumption_wh	
+0x78	120	Isolation resistance	Ohm	Float	2	RO	0x03	isolation_resistance_ohm	
+0x7A	122	Power limit from EVU	%	Float	2	RO	0x03	power_limit_from_evu_percent	
+0x7C	124	Total home consumption rate	%	Float	2	RO	0x03	total_home_consumption_rate_percent	
+0x90	144	Worktime	s	Float	2	RO	0x03	worktime_seconds	true
+0x96	150	Actual cos φ	-	Float	2	RO	0x03	actual_cos_phi	true
+0x98	152	Grid frequency	Hz	Float	2	RO	0x03	grid_frequency_hz	true
+0x9A	154	Current Phase 1	A	Float	2	RO	0x03	current_phase_1_a	true
+0x9C	156	Active power Phase 1	W	Float	2	RO	0x03	active_power_phase_1_w	true
+0x9E	158	Voltage Phase 1	V	Float	2	RO	0x03	voltage_phase_1_v	true
+0xA0	160	Current Phase 2	A	Float	2	RO	0x03	current_phase_2_a	true
+0xA2	162	Active power Phase 2	W	Float	2	RO	0x03	active_power_phase_2_w	true
+0xA4	164	Voltage Phase 2	V	Float	2	RO	0x03	voltage_phase_2_v	true
+0xA6	166	Current Phase 3	A	Float	2	RO	0x03	current_phase_3_a	true
+0xA8	168	Active power Phase 3	W	Float	2	RO	0x03	active_power_phase_3_w	true
+0xAA	170	Voltage Phase 3	V	Float	2	RO	0x03	voltage_phase_3_v	true
+0xAC	172	Total AC active power	W	Float	2	RO	0x03	total_ac_active_power_w	true
+0xAE	174	Total AC reactive power	Var	Float	2	RO	0x03	total_ac_reactive_power	true
+0xB2	178	Total AC apparent power	VA	Float	2	RO	0x03	total_ac_apparent_power_va	true
+0xBE	190	Battery charge current	A	Float	2	RO	0x03	battery_charge_current_a	
+0xC2	194	Number of battery cycles	-	Float	2	RO	0x03	number_of_battery_cycles	
+0xC8	200	Actual battery charge (-) / discharge (+) current	A	Float	2	RO	0x03	actual_battery_charge_discharge_current_a	
+0xCA	202	PSSB fuse state	-	Float	2	RO	0x03	pssb_fuse_state	
+0xD0	208	Battery ready flag	-	Float	2	RO	0x03	battery_ready_flag	
+0xD2	210	Act. state of charge	%	Float	2	RO	0x03	act_state_of_charge_percent	
+0xD6	214	Battery temperature	°C	Float	2	RO	0x03	battery_temperature_degc	
+0xD8	216	Battery voltage	V	Float	2	RO	0x03	battery_voltage_v	
+0xDA	218	Cos φ (powermeter)	-	Float	2	RO	0x03	cos_phi_powermeter	
+0xDC	220	Frequency (powermeter)	Hz	Float	2	RO	0x03	frequency_powermeter_hz	
+0xDE	222	Current phase 1 (powermeter)	A	Float	2	RO	0x03	current_phase_1_powermeter_a	
+0xE0	224	Active power phase 1 (powermeter)	W	Float	2	RO	0x03	active_power_phase_1_powermeter_w	
+0xE2	226	Reactive power phase 1 (powermeter)	Var	Float	2	RO	0x03	reactive_power_phase_1_powermeter	
+0xE4	228	Apparent power phase 1 (powermeter)	VA	Float	2	RO	0x03	apparent_power_phase_1_powermeter_va	
+0xE6	230	Voltage phase 1 (powermeter)	V	Float	2	RO	0x03	voltage_phase_1_powermeter_v	
+0xE8	232	Current phase 2 (powermeter)	A	Float	2	RO	0x03	current_phase_2_powermeter_a	
+0xEA	234	Active power phase 2 (powermeter)	W	Float	2	RO	0x03	active_power_phase_2_powermeter_w	
+0xEC	236	Reactive power phase 2 (powermeter)	Var	Float	2	RO	0x03	reactive_power_phase_2_powermeter	
+0xEE	238	Apparent power phase 2 (powermeter)	VA	Float	2	RO	0x03	apparent_power_phase_2_powermeter_va	
+0xF0	240	Voltage phase 2 (powermeter)	V	Float	2	RO	0x03	voltage_phase_2_powermeter_v	
+0xF2	242	Current phase 3 (powermeter)	A	Float	2	RO	0x03	current_phase_3_powermeter_a	
+0xF4	244	Active power phase 3 (powermeter)	W	Float	2	RO	0x03	active_power_phase_3_powermeter_w	
+0xF6	246	Reactive power phase 3 (powermeter)	Var	Float	2	RO	0x03	reactive_power_phase_3_powermeter	
+0xF8	248	Apparent power phase 3 (powermeter)	VA	Float	2	RO	0x03	apparent_power_phase_3_powermeter_va	
+0xFA	250	Voltage phase 3 (powermeter)	V	Float	2	RO	0x03	voltage_phase_3_powermeter_v	
+0xFC	252	Total active power (powermeter)	W	Float	2	RO	0x03	total_active_power_powermeter_w	
+0xFE	254	Total reactive power (powermeter)	Var	Float	2	RO	0x03	total_reactive_power_powermeter	
+0x100	256	Total apparent power (powermeter)	VA	Float	2	RO	0x03	total_apparent_power_powermeter_va	
+0x102	258	Current DC1	A	Float	2	RO	0x03	current_dc1_a	true
+0x104	260	Power DC1	W	Float	2	RO	0x03	power_dc1_w	true
+0x10A	266	Voltage DC1	V	Float	2	RO	0x03	voltage_dc1_v	true
+0x10C	268	Current DC2	A	Float	2	RO	0x03	current_dc2_a	true
+0x10E	270	Power DC2	W	Float	2	RO	0x03	power_dc2_w	true
+0x114	276	Voltage DC2	V	Float	2	RO	0x03	voltage_dc2_v	true
+0x116	278	Current DC3	A	Float	2	RO	0x03	current_dc3_a	true
+0x118	280	Power DC3	W	Float	2	RO	0x03	power_dc3_w	true
+0x11E	286	Voltage DC3	V	Float	2	RO	0x03	voltage_dc3_v	true
+0x140	320	Total yield	Wh	Float	2	RO	0x03	total_yield_wh	true
+0x142	322	Daily yield	Wh	Float	2	RO	0x03	daily_yield_wh	true
+0x144	324	Yearly yield	Wh	Float	2	RO	0x03	yearly_yield_wh	true
+0x146	326	Monthly yield	Wh	Float	2	RO	0x03	monthly_yield_wh	true
+0x180	384	Inverter network name	-	String	32	RO	0x03	inverter_network_name	
+0x1A0	416	IP enable	-	U16	1	RO	0x03	ip_enable	
+0x1A2	418	Manual IP / Auto-IP	-	U16	1	RO	0x03	manual_ip_auto_ip	
+0x1A4	420	IP-address	-	String	8	RO	0x03	ip_address	
+0x1AC	428	IP-subnetmask	-	String	8	RO	0x03	ip_subnetmask	
+0x1B4	436	IP-gateway	-	String	8	RO	0x03	ip_gateway	
+0x1BC	444	IP-auto-DNS	-	U16	1	RO	0x03	ip_auto_dns	
+0x1BE	446	IP-DNS1	-	String	8	RO	0x03	ip_dns1	
+0x1C6	454	IP-DNS2	-	String	8	RO	0x03	ip_dns2	
+0x200	512	Battery gross capacity	Ah	U32	2	RO	0x03	battery_gross_capacity_ah	
+0x202	514	Battery actual SOC	%	U16	1	RO	0x03	battery_actual_soc_percent	
+0x203	515	Firmware Maincontroller (MC)	-	U32	2	RO	0x03	firmware_maincontroller	
+0x205	517	Battery Manufacturer	-	String	8	RO	0x03	battery_manufacturer	
+0x20D	525	Battery Model ID	-	U32	2	RO	0x03	battery_model_id	
+0x20F	527	Battery Serial Number	-	U32	2	RO	0x03	battery_serial_number	
+0x211	529	Work Capacity	Wh	U32	2	RO	0x03	work_capacity_wh	
+0x213	531	Inverter Max Power	W	U16	1	RO	0x03	inverter_max_power_w	
+0x214	532	Inverter Max Power Scale Factor	-	-	1	RO	0x03	inverter_max_power_scale_factor	
+0x215	533	Active Power Setpoint	%	U16	1	RW	0x03/0x06	active_power_setpoint_percent	
+0x217	535	Inverter Manufacturer	-	String	16	RO	0x03	inverter_manufacturer	
+0x22F	559	Inverter Serial Number	-	String	16	RO	0x03	inverter_serial_number_559	
+0x23F	575	Inverter Generation Power (actual)	W	S16	1	RO	0x03	inverter_generation_power_w	true
+0x240	576	Power Scale Factor	-	-	1	RO	0x03	power_scale_factor	
+0x241	577	Generation Energy	Wh	U32	2	RO	0x03	generation_energy_wh	
+0x243	579	Energy Scale Factor	-	-	1	RO	0x03	energy_scale_factor	
+0x246	582	Actual battery charge/discharge power	W	S16	1	RO	0x03	actual_battery_charge_discharge_power_w	
+0x247	583	Reactive Power Setpoint	%	S16	1	RW	0x03/0x06	reactive_power_setpoint_percent	
+0x249	585	Delta-cos φ Setpoint	-	S16	1	RW	0x03/0x06	delta_cos_phi_setpoint	
+0x24A	586	Battery Firmware	-	U32	2	RO	0x03	battery_firmware	
+0x24C	588	Battery Type	-	U16	1	RO	0x03	battery_type	
+0x300	768	Productname (e.g. PLENTICORE plus)	-	String	32	RO	0x03	productname	
+0x320	800	Power class (e.g. 10)	-	String	32	RO	0x03	power_class	
+0x416	1046	Total DC charge energy (DC-side to battery)	Wh	Float	2	RO	0x03	total_dc_charge_energy_wh	
+0x418	1048	Total DC discharge energy (DC-side from battery)	Wh	Float	2	RO	0x03	total_dc_discharge_energy_wh	
+0x41A	1050	Total AC charge energy (AC-side to battery)	Wh	Float	2	RO	0x03	total_ac_charge_energy_wh	
+0x41C	1052	Total AC discharge energy (battery to grid)	Wh	Float	2	RO	0x03	total_ac_discharge_energy_wh	
+0x41E	1054	Total AC charge energy (grid to battery)	Wh	Float	2	RO	0x03	total_ac_charge_energy_wh	
+0x420	1056	Total DC PV energy (sum of all PV inputs)	Wh	Float	2	RO	0x03	total_dc_pv_energy_sum_of_all_inputs_wh	
+0x422	1058	Total DC energy from PV1	Wh	Float	2	RO	0x03	total_dc_energy_from_pv1_wh	
+0x424	1060	Total DC energy from PV2	Wh	Float	2	RO	0x03	total_dc_energy_from_pv2_wh	
+0x426	1062	Total DC energy from PV3	Wh	Float	2	RO	0x03	total_dc_energy_from_pv3_wh	
+0x428	1064	Total energy AC-side to grid	Wh	Float	2	RO	0x03	total_energy_ac_side_to_grid_wh	
+0x42A	1066	Total DC power (sum of all PV inputs)	W	Float	2	RO	0x03	total_dc_power_sum_of_all_inputs_w	
