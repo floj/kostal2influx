@@ -22,8 +22,14 @@ func main() {
 		Flags: []cli.Flag{
 			&cli.StringFlag{
 				Name:     "influx-url",
-				Usage:    "Influx-DB url, e.g. http://localhost:8080/write?db=kostal",
+				Usage:    "Influx-DB url, e.g. http://localhost:8080/api/v2/write?org=YOUR_ORG&bucket=YOUR_BUCKET",
 				EnvVars:  []string{"INFLUX_URL"},
+				Required: true,
+			},
+			&cli.StringFlag{
+				Name:     "influx-token",
+				Usage:    "Influx-DB access token",
+				EnvVars:  []string{"INFLUX_TOKEN"},
 				Required: true,
 			},
 			&cli.DurationFlag{
@@ -65,6 +71,7 @@ func main() {
 
 func run(ctx *cli.Context) error {
 	influxURL := ctx.String("influx-url")
+	influxToken := ctx.String("influx-token")
 	verbose := ctx.Bool("verbose")
 
 	kc, err := kostal.NewClient(ctx.String("kostal-addr"), verbose)
@@ -81,7 +88,7 @@ func run(ctx *cli.Context) error {
 		Timeout: ctx.Duration("influx-timeout"),
 	}
 
-	if err := readAndPublish(kc, httpClient, influxURL, verbose); err != nil {
+	if err := readAndPublish(kc, httpClient, influxURL, influxToken, verbose); err != nil {
 		return err
 	}
 
@@ -96,7 +103,7 @@ func run(ctx *cli.Context) error {
 			return nil
 		case t := <-ticker.C:
 			log.Printf("reading registers at %s\n", t)
-			err := readAndPublish(kc, httpClient, influxURL, verbose)
+			err := readAndPublish(kc, httpClient, influxURL, influxToken, verbose)
 			if err != nil {
 				return err
 			}
@@ -104,7 +111,7 @@ func run(ctx *cli.Context) error {
 	}
 }
 
-func readAndPublish(kc *kostal.Client, httpClient *http.Client, influxURL string, verbose bool) error {
+func readAndPublish(kc *kostal.Client, httpClient *http.Client, influxURL, influxToken string, verbose bool) error {
 	var buf bytes.Buffer
 	fmt.Fprintf(&buf, "pv,device=%s,vendor=kostal ", kc.SerialNumber())
 
@@ -125,7 +132,15 @@ func readAndPublish(kc *kostal.Client, httpClient *http.Client, influxURL string
 		fmt.Fprintf(&buf, "%s=%v", r.Register.InfluxField, r.Value)
 	}
 
-	resp, err := httpClient.Post(influxURL, "application/x-www-form-urlencoded", &buf)
+	req, err := http.NewRequest("POST", influxURL, &buf)
+	if err != nil {
+		return fmt.Errorf("could not create http request: %w", err)
+	}
+	req.Header.Add("Authorization", "Token "+influxToken)
+	req.Header.Add("Content-Type", "text/plain; charset=utf-8")
+	req.Header.Add("Accept", "application/json")
+
+	resp, err := httpClient.Do(req)
 	if err != nil {
 		return fmt.Errorf("could not send metrics to influxdb: %w", err)
 	}
