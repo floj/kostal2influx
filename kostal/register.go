@@ -38,7 +38,15 @@ func (r *Register) Read(client modbus.Client) (any, error) {
 	case "S16":
 		return int16(binary.BigEndian.Uint16(data)), nil
 	case "String":
-		return strings.TrimSpace(string(data)), nil
+		{
+			for i := range data {
+				if data[i] == 0 {
+					data[i] = ' '
+				}
+			}
+			s := string(data)
+			return strings.TrimSpace(s), nil
+		}
 	case "Bool":
 		return binary.BigEndian.Uint16(data)&0x1 > 0, nil
 	case "-":
