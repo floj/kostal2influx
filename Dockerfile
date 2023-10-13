@@ -11,12 +11,12 @@ WORKDIR /app
 RUN go mod download
 COPY . /app
 RUN --mount=type=cache,target=/root/.cache/go-build \
-  GOOS=${TARGETOS} GOARCH=${TARGETARCH} CGO_ENABLED=0 \
-  go build -v -o /app/kostal-influx-bridge
+  CGO_ENABLED=0 GOEXPERIMENT=loopvar GOOS=${TARGETOS} GOARCH=${TARGETARCH} \
+  go build -ldflags '-s -w' -trimpath -v -o /app/kostal-influx-bridge
 
 FROM alpine:3
-USER nobody
-WORKDIR /
+RUN apk add --no-cache tini
 COPY --from=builder /app/kostal-influx-bridge .
-
-CMD ["/kostal-influx-bridge"]
+WORKDIR /
+USER nobody
+CMD ["/sbin/tini", "--", "/kostal-influx-bridge"]
