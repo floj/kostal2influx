@@ -81,7 +81,7 @@ func registers() []Register {
 			format:      "String",
 			length:      0x8,
 			InfluxField: "software_version_maincontroller",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0x2e,
@@ -89,7 +89,7 @@ func registers() []Register {
 			format:      "String",
 			length:      0x8,
 			InfluxField: "software_version_io_controller",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0x36,
@@ -137,7 +137,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "home_own_consumption_from_battery_w",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0x6c,
@@ -145,7 +145,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "home_own_consumption_from_grid_w",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0x6e,
@@ -153,7 +153,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "total_home_consumption_battery_wh",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0x70,
@@ -161,7 +161,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "total_home_consumption_grid_wh",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0x72,
@@ -169,7 +169,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "total_home_consumption_pv_wh",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0x74,
@@ -177,7 +177,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "home_own_consumption_from_pv_w",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0x76,
@@ -185,7 +185,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "total_home_consumption_wh",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0x78,
@@ -209,7 +209,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "total_home_consumption_rate_percent",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0x90,
@@ -361,7 +361,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "pssb_fuse_state",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xd0,
@@ -401,7 +401,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "cos_phi_powermeter",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xdc,
@@ -409,7 +409,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "frequency_powermeter_hz",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xde,
@@ -417,7 +417,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "current_phase_1_powermeter_a",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xe0,
@@ -425,7 +425,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "active_power_phase_1_powermeter_w",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xe2,
@@ -433,7 +433,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "reactive_power_phase_1_powermeter",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xe4,
@@ -441,7 +441,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "apparent_power_phase_1_powermeter_va",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xe6,
@@ -449,7 +449,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "voltage_phase_1_powermeter_v",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xe8,
@@ -457,7 +457,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "current_phase_2_powermeter_a",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xea,
@@ -465,7 +465,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "active_power_phase_2_powermeter_w",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xec,
@@ -473,7 +473,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "reactive_power_phase_2_powermeter",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xee,
@@ -481,7 +481,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "apparent_power_phase_2_powermeter_va",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xf0,
@@ -489,7 +489,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "voltage_phase_2_powermeter_v",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xf2,
@@ -497,7 +497,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "current_phase_3_powermeter_a",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xf4,
@@ -505,7 +505,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "active_power_phase_3_powermeter_w",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xf6,
@@ -513,7 +513,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "reactive_power_phase_3_powermeter",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xf8,
@@ -521,7 +521,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "apparent_power_phase_3_powermeter_va",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xfa,
@@ -529,7 +529,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "voltage_phase_3_powermeter_v",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xfc,
@@ -537,7 +537,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "total_active_power_powermeter_w",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0xfe,
@@ -545,7 +545,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "total_reactive_power_powermeter",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0x100,
@@ -553,7 +553,7 @@ func registers() []Register {
 			format:      "Float",
 			length:      0x2,
 			InfluxField: "total_apparent_power_powermeter_va",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0x102,
@@ -753,7 +753,7 @@ func registers() []Register {
 			format:      "U32",
 			length:      0x2,
 			InfluxField: "firmware_maincontroller",
-			Include:     false,
+			Include:     true,
 		},
 		{
 			Addr:        0x205,
